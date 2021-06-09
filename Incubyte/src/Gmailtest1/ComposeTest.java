@@ -6,7 +6,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -19,18 +21,24 @@ WebDriver driver;
 @Given("^User Open Chrome and Nevigate to gmail$")
 public void User_Open_Chrome_and_Nevigate_to_gmail() throws Throwable {
    
-	 System.setProperty("webdriver.chrome.driver", "D:\\Chrome91\\chromedriver_win32\\chromedriver.exe");
-	  driver=new ChromeDriver();
-		driver.get("https://www.google.com");
-		driver.findElement(By.xpath("//a[contains(text(),'Sign in')]")).click();
+	System.setProperty("webdriver.chrome.driver", "D:\\Chrome91\\chromedriver_win32\\chromedriver.exe");
+	 driver=new ChromeDriver();
+//	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	//  System.setProperty("webdriver.gecko.driver","D:\\fireboxDriver\\geckodriver-v0.29.1-win32\\geckodriver.exe");
+	 // driver=new FirefoxDriver();
+	  driver.get("https://mail.google.com/");
+	//	driver.get("https://www.google.com");
+		//driver.findElement(By.xpath("//a[contains(text(),'Sign in')]")).click();
 }
 
 @Given("^Login with valid username and password$")
 public void Login_with_valid_username_and_password() throws Throwable {
-	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	driver.findElement(By.xpath("//input[@id='identifierId']")).sendKeys("");
+	//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	driver.findElement(By.xpath("//input[@id='identifierId']")).sendKeys("kaveri9450@gmail.com");
 	driver.findElement(By.xpath("//span[contains(text(),'Next')]")).click();
-	driver.findElement(By.xpath("//input[@name='password']")).sendKeys("");
+	
+	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	driver.findElement(By.xpath("//input[@name='password']")).sendKeys("9881502041");
 	driver.findElement(By.xpath("//span[contains(text(),'Next')]")).click();
     
 }
@@ -47,6 +55,7 @@ public void It_will_open_compose_window() throws Throwable {
 	String emailwin=it.next();
 	String composewin=it.next();
 	driver.switchTo().window(composewin);
+	
   
 }
 
