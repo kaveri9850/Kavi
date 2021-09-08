@@ -40,14 +40,14 @@ public void Login_with_valid_username_and_password() throws Throwable {
 	
 	
 	 
-	driver.findElement(By.xpath("//input[@id='identifierId']")).sendKeys("Email"); //enter user email
+	driver.findElement(By.xpath("//input[@id='identifierId']")).sendKeys("kaveri9850@gmail.com"); //enter user email
 	driver.findElement(By.xpath("//span[contains(text(),'Next')]")).click();
 	
 	
 	WebElement  password=driver.findElement(By.xpath("//input[@name='password']"));
 	 WebDriverWait wait=new WebDriverWait(driver,30);
 	  wait.until(ExpectedConditions.elementToBeClickable(password));
-	  password.sendKeys(" password");//enter user password
+	  password.sendKeys("Love@280419");//enter user password
 	driver.findElement(By.xpath("//span[contains(text(),'Next')]")).click();
     
 }
