@@ -47,7 +47,7 @@ public void Login_with_valid_username_and_password() throws Throwable {
 	WebElement  password=driver.findElement(By.xpath("//input[@name='password']"));
 	 WebDriverWait wait=new WebDriverWait(driver,30);
 	  wait.until(ExpectedConditions.elementToBeClickable(password));
-	  password.sendKeys("enter passwore");//enter user password
+	  password.sendKeys("enter password");//enter user password
 	driver.findElement(By.xpath("//span[contains(text(),'Next')]")).click();
     
 }
